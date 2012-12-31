@@ -158,6 +158,20 @@ sta-3622 -> psv-0-000-004-106A166
 	&lt;TripBoard int_sid=1 sid=106A166 agency=0 calendar=165157760 timezone=164034504 boardings=[('2459A106B166', 34764), ('1635A106B166', 38364), ('1640A106B166', 41964), ('1638A106B166', 45564), ('1643A106B166', 49164), ('1636A106B166', 52764), ('1641A106B166', 56364), ('1634A106B166', 59964), ('1639A106B166', 63564), ('1637A106B166', 67164)]&gt;
 </pre>
 
+Doing something similar from Python:
+<pre style="background-color:#F5F5F5"> 
+$ python
+&gt;&gt;&gt; from graphserver.graphdb import GraphDatabase 
+&gt;&gt;&gt; from graphserver.core import State
+&gt;&gt;&gt; gdb = GraphDatabase('redding.gdb')
+&gt;&gt;&gt; gg = gdb.incarnate()
+&gt;&gt;&gt; Loaded 551 vertices
+&gt;&gt;&gt; Loaded 1083 edges
+&gt;&gt;&gt; spt = gg.shortest_path_tree( "sta-3622", "sta-3887", State(1,0) )
+&gt;&gt;&gt; spt
+&lt;graphserver.core.ShortestPathTree object at 0x7f92df35be90&gt;
+</pre>
+
 <h3>Intermingling Public Transit and Street Data</h3> 
 <p>You can load both OSM and GTFS data into the same graph, then run a command to link them.</p>
 <pre style="background-color:#F5F5F5"> $ gs_link_osm_gtfs redding.gdb redding.osmdb redding.gtfsdb</pre>
