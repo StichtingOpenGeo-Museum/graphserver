@@ -145,7 +145,7 @@ osm-92080455 -> osm-92080381
 <h3>Loading Public Transit Data</h3> 
 
 Grab the GTFS file for your favorite transit agency. Here, we grab the GTFS for the transit system in Redding, CA:
-<pre style="background-color:#F5F5F5"> $ wget http://trilliumtransit.com/transit_feeds/redding/google_transit.zip -O redding_gtfs.zip</pre>
+<pre style="background-color:#F5F5F5"> $ wget http://trilliumtransit.com/transit_feeds/redding-ca-us/gtfs.zip -O redding_gtfs.zip</pre>
 <p>Compile the GTFS into a GTFSDB, and then compile that GTFSDB into a graph<p>
 <pre style="background-color:#F5F5F5"> $ gs_gtfsdb_build redding_gtfs.zip redding.gtfsdb
  $ gs_import_gtfs redding.gdb redding.gtfsdb</pre>
